@@ -1,0 +1,60 @@
+<!--
+  Generated template for the TakePicturePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-toolbar>
+    <ion-title text-center class="oleo-script">
+      Mpsgram
+    </ion-title>
+    <ion-buttons ion-start>
+      <button ion-button (click)="dismiss()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="auto-scroll">
+  <ion-card>
+    <ion-slides (ionSlideDidChange)="changeFilter()">
+      <ion-slide text-center>
+        <img src="http://lorempixel.com/512/512/food" alt="" class="inkwell" style="width: 100%">
+        <small>inkWell</small>
+      </ion-slide>
+
+      <ion-slide text-center>
+        <img src="http://lorempixel.com/512/512/food" alt="" class="willow" style="width: 100%">
+        <small>willow</small>
+      </ion-slide>
+
+      <ion-slide text-center>
+        <img src="http://lorempixel.com/512/512/food" alt="" class="nashville" style="width: 100%">
+        <small>nashville</small>
+      </ion-slide>
+    </ion-slides>
+
+    <ion-card-content>
+      <ion-list no-lines>
+        <ion-item>
+          <ion-input type="text" placeholder="Título"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-textarea placeholder="Mensagem" row="3"></ion-textarea>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+
+    <ion-row no-padding>
+      <ion-col>
+        <button ion-button clear small color="danger" ion-start (click)="getLocation()"><ion-icon name="pin"></ion-icon>Ativa Localização</button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+  <div padding>
+    <button ion-button block large outline>Enviar</button>
+  </div>
+
+</ion-content>

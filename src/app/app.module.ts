@@ -8,13 +8,22 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { SignupPage } from "../pages/signup/signup";
+import { PhotosPage } from '../pages/photos/photos';
+import { TakePicturePage } from '../pages/take-picture/take-picture';
+import { SendPhotoPage } from '../pages/send-photo/send-photo';
+import { ProfilePage } from '../pages/profile/profile';
+
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     LoginPage,
-    SignupPage
+    SignupPage,
+    PhotosPage,
+    TakePicturePage,
+    SendPhotoPage,
+    ProfilePage
   ],
   imports: [
     BrowserModule,
@@ -25,12 +34,16 @@ import { SignupPage } from "../pages/signup/signup";
     MyApp,
     HomePage,
     LoginPage,
-    SignupPage
+    SignupPage,
+    PhotosPage,
+    TakePicturePage,
+    SendPhotoPage,
+    ProfilePage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })
-export class AppModule {}
+export class AppModule { }
