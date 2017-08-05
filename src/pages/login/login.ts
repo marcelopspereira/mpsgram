@@ -36,6 +36,12 @@ export class LoginPage {
         Validators.required
       ])]
     });
+
+    afAuth.authState.subscribe(user => {
+      if (user) {
+        this.navCtrl.setRoot(HomePage);
+      }
+    });
   }
 
   ionViewDidLoad() {
@@ -44,7 +50,7 @@ export class LoginPage {
 
 
   submit() {
-    let loader = this.loadingCtrl.create({ content: 'Autenticando' });
+    let loader = this.loadingCtrl.create({ content: 'Autenticando...' });
     loader.present();
 
     this.afAuth.auth
