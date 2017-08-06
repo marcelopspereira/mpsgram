@@ -30,6 +30,6 @@ export class ProfilePage {
   }
   submit() {
     this.authFire.auth.signOut();
-    this.navCtrl.setRoot(LoginPage);
+    this.navCtrl.setRoot(LoginPage);  
   }
 }
