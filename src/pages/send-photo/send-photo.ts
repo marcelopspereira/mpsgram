@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavParams, ViewController } from 'ionic-angular';
+import { IonicPage, AlertController, ViewController } from 'ionic-angular';
 
 /**
  * Generated class for the SendPhotoPage page.
@@ -14,17 +14,32 @@ import { IonicPage, NavParams, ViewController } from 'ionic-angular';
   templateUrl: 'send-photo.html',
 })
 export class SendPhotoPage {
-
-  constructor(public viewCtrl: ViewController, public navParams: NavParams) {
+  public location: string = '';
+  constructor(public viewCtrl: ViewController, public alertCtrl: AlertController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SendPhotoPage');
   }
+  getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((data) => {
+        this.location = data.coords.latitude + ',' + data.coords.longitude;
+      }, (err) => {
+        let alert = this.alertCtrl.create({
+          title: 'Ops, algo deu errado',
+          subTitle: 'Não foi possível obter sua localização.',
+          buttons: ['OK']
+        });
+        alert.present();
+      });
+    }
+  }
+
   dismiss() {
     this.viewCtrl.dismiss();
   }
   changeFilter() {
- 
+
   }
 }

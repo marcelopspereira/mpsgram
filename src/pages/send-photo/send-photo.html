@@ -49,9 +49,11 @@
 
     <ion-row no-padding>
       <ion-col>
-        <button ion-button clear small color="danger" ion-start (click)="getLocation()"><ion-icon name="pin"></ion-icon>Ativa Localização</button>
+        <button ion-button clear small color="danger" icon-start *ngIf="location == ''" (click)="getLocation()"><ion-icon name='pin'></ion-icon> Ativar Localização</button>
+        <button ion-button clear small color="danger" icon-start *ngIf="location != ''"><ion-icon name='pin'></ion-icon> {{ location }}</button>
       </ion-col>
     </ion-row>
+
   </ion-card>
   <div padding>
     <button ion-button block large outline>Enviar</button>
