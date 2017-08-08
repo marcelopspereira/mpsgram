@@ -44,7 +44,24 @@
 
   <!-- The main bundle js is generated during the build process -->
   <script src="build/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      if (!Notification) {
+        alert('Este browser não suporta notificações');
+        return;
+      }
 
+      if (Notification.permission !== 'granted')
+        Notification.requestPermission();
+
+      // var notification = new Notification('Bem vindo para Mpsgram!', {
+      //   icon: '/assets/icon/icon-512x512.png',
+      //   body: "Seja bem vindo a nosso sistema",
+      //   vibrate: [200, 100, 200, 100, 200, 100, 200]
+      // });
+    });
+
+  </script>
 </body>
 
 </html>

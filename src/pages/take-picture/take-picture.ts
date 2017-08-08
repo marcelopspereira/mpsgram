@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavParams, ViewController, ModalController } from 'ionic-angular';
+import { IonicPage, ViewController, ModalController } from 'ionic-angular';
 import { SendPhotoPage } from '../send-photo/send-photo'
 /**
  * Generated class for the TakePicturePage page.
@@ -15,19 +15,20 @@ import { SendPhotoPage } from '../send-photo/send-photo'
 })
 export class TakePicturePage {
 
-  constructor(public viewCtrl: ViewController, public modalCtrl: ModalController) {
+  constructor(
+    private viewCtrl: ViewController,
+    private modalCtrl: ModalController) {
+
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad TakePicturePage');
-
     var video = <any>document.getElementById('video');
+
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-      navigator.mediaDevices.getUserMedia({ video: true })
-        .then((stream) => {
-          video.src = window.URL.createObjectURL(stream);
-          video.play();
-        })
+      navigator.mediaDevices.getUserMedia({ video: true }).then(function (stream) {
+        video.src = window.URL.createObjectURL(stream);
+        video.play();
+      });
     }
   }
 
@@ -46,6 +47,7 @@ export class TakePicturePage {
       modal.present();
     }, 800);
   }
+
   dismiss() {
     this.viewCtrl.dismiss();
   }

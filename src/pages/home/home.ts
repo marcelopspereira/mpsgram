@@ -4,7 +4,6 @@ import { PhotosPage } from '../photos/photos';
 import { TakePicturePage } from '../take-picture/take-picture';
 import { ProfilePage } from '../profile/profile';
 
-
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -12,6 +11,7 @@ import { ProfilePage } from '../profile/profile';
 export class HomePage {
   public photosTab: any;
   public profileTab: any;
+  public user: string;
 
   constructor(public navCtrl: NavController, private modealCtrl: ModalController) {
     this.photosTab = PhotosPage;

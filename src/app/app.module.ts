@@ -10,11 +10,12 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
-import { SignupPage } from "../pages/signup/signup";
+import { SignupPage } from '../pages/signup/signup';
 import { PhotosPage } from '../pages/photos/photos';
-import { TakePicturePage } from '../pages/take-picture/take-picture';
 import { SendPhotoPage } from '../pages/send-photo/send-photo';
 import { ProfilePage } from '../pages/profile/profile';
+import { TakePicturePage } from '../pages/take-picture/take-picture';
+import { ShowMapPage } from '../pages/show-map/show-map';
 
 export const environment = {
   firebase: {
@@ -34,9 +35,10 @@ export const environment = {
     LoginPage,
     SignupPage,
     PhotosPage,
-    TakePicturePage,
     SendPhotoPage,
-    ProfilePage
+    ProfilePage,
+    TakePicturePage,
+    ShowMapPage
   ],
   imports: [
     BrowserModule,
@@ -52,9 +54,10 @@ export const environment = {
     LoginPage,
     SignupPage,
     PhotosPage,
-    TakePicturePage,
     SendPhotoPage,
-    ProfilePage
+    ProfilePage,
+    TakePicturePage,
+    ShowMapPage
   ],
   providers: [
     StatusBar,
