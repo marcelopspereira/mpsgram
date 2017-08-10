@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, LoadingController, NavController, AlertController } from 'ionic-angular';
+import { LoadingController, NavController, AlertController } from 'ionic-angular';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { LoginPage } from '../login/login';
@@ -12,7 +12,6 @@ import { LoginPage } from '../login/login';
  * on Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-signup',
   templateUrl: 'signup.html',

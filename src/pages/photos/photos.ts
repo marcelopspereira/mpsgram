@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, ModalController, LoadingController } from 'ionic-angular';
+import { ModalController, LoadingController } from 'ionic-angular';
 import { AngularFireDatabase } from 'angularfire2/database';
 
 import { ShowMapPage } from '../show-map/show-map';
@@ -11,7 +11,6 @@ import { ShowMapPage } from '../show-map/show-map';
  * on Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-photos',
   templateUrl: 'photos.html',

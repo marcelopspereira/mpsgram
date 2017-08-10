@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, Slides, NavParams, ViewController, LoadingController, NavController, AlertController } from 'ionic-angular';
+import { Slides, NavParams, ViewController, LoadingController, NavController, AlertController, ToastController } from 'ionic-angular';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -12,7 +12,6 @@ import * as firebase from 'firebase';
  * on Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-send-photo',
   templateUrl: 'send-photo.html',
@@ -52,13 +51,15 @@ export class SendPhotoPage {
     "toaster",
     "valencia",
     "walden",
-    "willow"
+    "willow",
+    "xpro2"
   ];
 
   constructor(private fb: FormBuilder,
     private loadingCtrl: LoadingController,
     private navCtrl: NavController,
     private alertCtrl: AlertController,
+    private toastCtrl: ToastController,
     private viewCtrl: ViewController,
     private navParams: NavParams,
     private db: AngularFireDatabase,
@@ -116,6 +117,46 @@ export class SendPhotoPage {
   submit() {
     let loader = this.loadingCtrl.create({ content: "Enviando..." });
     loader.present();
+
+    if (!navigator.onLine) {
+      let data = JSON.parse(localStorage.getItem('photos'));
+      if (!data) {
+        data = [];
+      }
+
+      data
+        .push({
+          user: this.user,
+          image: this.photo,
+          filter: this.filter,
+          location: this.location,
+          title: this.form.controls['title'].value,
+          message: this.form.controls['message'].value,
+          date: firebase.database.ServerValue.TIMESTAMP
+        })
+        .then(() => {
+          loader.dismiss();
+          let toast = this.toastCtrl.create({
+            message: 'Imagem salva para ser enviada depois',
+            duration: 3000
+          });
+
+          toast.present();
+
+          this.navCtrl.setRoot(HomePage);
+        })
+        .catch(() => {
+          loader.dismiss();
+          let alert = this.alertCtrl.create({
+            title: 'Ops, algo deu errado',
+            subTitle: 'Não foi possível enviar sua imagem.',
+            buttons: ['OK']
+          });
+          alert.present();
+        });
+      localStorage.setItem('photos', JSON.stringify(data));
+      return;
+    }
 
     this.photos
       .push({

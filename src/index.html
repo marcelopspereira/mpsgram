@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Ionic App</title>
+  <title>MPSgram</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta name="format-detection" content="telephone=no">
   <meta name="msapplication-tap-highlight" content="no">
@@ -35,6 +35,28 @@
   <!-- Ionic's root component and where the app will load -->
   <ion-app></ion-app>
 
+  <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
+  <!-- un-comment this code to enable service worker
+    -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(() => console.log('service worker installed'))
+        .catch(err => console.error('Error', err));
+    }
+  </script>
+
+  <script>
+    var OneSignal = window.OneSignal || [];
+    OneSignal.push(["init", {
+      appId: "258aba93-41f4-4b13-a3bd-5f6b44f179fc",
+      autoRegister: false,
+      notifyButton: {
+        enable: true /* Set to false to hide */
+      }
+    }]);
+
+  </script>
   <!-- The polyfills js is generated during the build process -->
   <script src="build/polyfills.js"></script>
 
@@ -50,17 +72,41 @@
         alert('Este browser não suporta notificações');
         return;
       }
-
       if (Notification.permission !== 'granted')
         Notification.requestPermission();
 
-      // var notification = new Notification('Bem vindo para Mpsgram!', {
-      //   icon: '/assets/icon/icon-512x512.png',
-      //   body: "Seja bem vindo a nosso sistema",
-      //   vibrate: [200, 100, 200, 100, 200, 100, 200]
-      // });
+      var notification = new Notification('Bem vindo para Mpsgram!', {
+        icon: '/assets/icon/icon-512x512.png',
+        body: "Seja bem vindo a nosso sistema",
+        vibrate: [200, 100, 200, 100, 200, 100, 200]
+      });
     });
 
+
+    function isOnline() {
+      var connectionStatus = document.getElementById('connectionStatus');
+
+      if (navigator.onLine) {
+        var notification = new Notification('Você está online!', {
+          icon: '/assets/icon/icon-512x512.png',
+          body: 'Você está navegando online, todo conteúdo será enviado para o servidor',
+          vibrate: [200, 100, 200, 100, 200, 100, 200]
+        });
+
+        var photos =JSON.parse(localStorage.getItem('photos'));
+        photos.forEach(function(photo) {
+          console.log(photo.title);
+        });
+      } else {
+        var notification = new Notification('Você está offline!', {
+          icon: '/assets/icon/icon-512x512.png',
+          body: 'Você está navegando offline, todo conteúdo será armazenado no browser',
+          vibrate: [200, 100, 200, 100, 200, 100, 200]
+        });
+      }
+      window.addEventListener('online', isOnline);
+      window.addEventListener('offline', isOnline);
+}
   </script>
 </body>
 

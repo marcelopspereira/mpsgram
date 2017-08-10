@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, ViewController, ModalController } from 'ionic-angular';
+import { ViewController, ModalController } from 'ionic-angular';
 import { SendPhotoPage } from '../send-photo/send-photo'
 /**
  * Generated class for the TakePicturePage page.
@@ -8,7 +8,7 @@ import { SendPhotoPage } from '../send-photo/send-photo'
  * on Ionic pages and navigation.
  */
 
-@IonicPage()
+
 @Component({
   selector: 'page-take-picture',
   templateUrl: 'take-picture.html',

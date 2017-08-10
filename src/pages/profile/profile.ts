@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController} from 'ionic-angular';
+import { NavController} from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { LoginPage } from "../login/login";
 /**
@@ -9,7 +9,6 @@ import { LoginPage } from "../login/login";
  * on Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-profile',
   templateUrl: 'profile.html',
