@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-/**
  * Generated class for the ProfilePage page.
  *
  * See http://ionicframework.com/docs/components/#navigation for more info
@@ -11,6 +9,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 @IonicPage()
 @Component({
   selector: 'page-profile',
+@IonicPage()
   templateUrl: 'profile.html',
 })
 export class ProfilePage {
