@@ -28,7 +28,7 @@ export class HomePage {
   }
 
   goMessages() {
-    this.navCtrl.setRoot(MessagesPage);
+    this.navCtrl.push(MessagesPage);
   }
 
   scrollToTop(){

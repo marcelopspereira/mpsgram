@@ -27,7 +27,7 @@ export class PhotosPage {
     loader.present();
     
     this.db.list('/photos').subscribe(photos => {
-      console.log(photos);
+     // console.log(photos);
       //if(this.photos !=null)
       this.photos = photos.reverse();
       loader.dismiss();
@@ -37,8 +37,9 @@ export class PhotosPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad PhotosPage');
   }
-  showMap() {
+  showMap(location) {
     let modal = this.modalCtrl.create(ShowMapPage, { location: location });
+    //console.log(location);
     modal.present();
   }
 }
