@@ -60,7 +60,7 @@ export const environment = {
     ProfilePage,
     TakePicturePage,
     ShowMapPage,
-    MessagesPage
+    MessagesPage,
   ],
   providers: [
     StatusBar,
