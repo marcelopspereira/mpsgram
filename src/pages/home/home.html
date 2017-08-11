@@ -1,15 +1,22 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title text-center class="oleo-script">
+  <ion-toolbar  color="white">
+       <ion-buttons start left>
+      <button color="black" ion-button ion-only (click)="showSendPhoto()">
+        <ion-icon name="camera"></ion-icon>
+      </button>
+    </ion-buttons>
+     <ion-title text-center  style="border: 1px solid #ccc" class="oleo-script"  (click)="scrollToTop()">
       Mpsgram
     </ion-title>
-    <ion-buttons start>
-      <button ion-button ion-only (click)="showSendPhoto()">
-        <ion-icon name="camera"></ion-icon>
+     <ion-buttons end right>
+      <button color="black" ion-button icon-only (click)="goMessages()">
+        <ion-icon name="paper-plane"></ion-icon>
       </button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
+
+
 
 <ion-content padding>
    <ion-tabs>

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController} from 'ionic-angular';
-import { AngularFireAuth } from 'angularfire2/auth';
-import { LoginPage } from "../login/login";
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
+
 /**
  * Generated class for the ProfilePage page.
  *
@@ -9,26 +8,18 @@ import { LoginPage } from "../login/login";
  * on Ionic pages and navigation.
  */
 
+@IonicPage()
 @Component({
   selector: 'page-profile',
   templateUrl: 'profile.html',
 })
 export class ProfilePage {
-  public user: string = '';
 
-  constructor(public navCtrl: NavController, public authFire: AngularFireAuth) {
-    authFire.authState.subscribe(user => {
-      if (user) {
-        this.user = user.email;
-      }
-    });
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfilePage');
   }
-  submit() {
-    this.authFire.auth.signOut();
-    this.navCtrl.setRoot(LoginPage);  
-  }
+
 }

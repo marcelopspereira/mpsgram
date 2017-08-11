@@ -4,7 +4,6 @@
 // Font path is used to include ionicons,
 // roboto, and noto sans fonts
 $font-path: "../assets/fonts";
-
 $text-input-md-show-focus-highlight: false;
 
 // The app direction is used to include
@@ -22,7 +21,8 @@ $app-direction: ltr;
 // the Sass variables found in Ionic's source scss files.
 // To view all the possible Ionic variables, see:
 // http://ionicframework.com/docs/theming/overriding-ionic-variables/
-
+$tabs-background: #fff;
+$grid-padding-width: 5px !default;
 
 
 
@@ -46,14 +46,33 @@ $colors: (
 // App iOS Variables
 // --------------------------------------------------
 // iOS only Sass variables can go here
-
+$tabs-ios-tab-color-active: #000;
+$tabs-ios-tab-color-inactive: #C7C7C7;
+$card-ios-box-shadow: #fff;
+$segment-button-ios-text-color: #fff;
+ 
 
 
 
 // App Material Design Variables
 // --------------------------------------------------
 // Material Design only Sass variables can go here
-
+$tabs-md-tab-text-transform-active: 0;
+$tabs-md-tab-text-transition: 0;
+$tabs-md-tab-icon-transform-active: 0;
+$tabs-md-tab-color-active: #000;
+$tabs-md-tab-color-inactive: #C7C7C7;
+$card-md-box-shadow: #fff;
+$button-md-ripple-background-color: 0;
+$button-md-outline-ripple-background-color: 0;
+$button-md-clear-ripple-background-color: 0;
+$searchbar-md-input-border-radius: 0;
+$searchbar-md-input-box-shadow: 0;
+$segment-button-md-border-color-activated: #000;
+$segment-button-md-text-color-activated: #000;
+$segment-button-md-text-color: #fff;
+$segment-button-md-border-bottom-width: 1px;
+$checkbox-md-icon-border-radius: 50%;
 
 
 
